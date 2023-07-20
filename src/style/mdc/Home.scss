@@ -1,0 +1,34 @@
+@use "@material/button/styles";
+@use "@material/list";
+@use "@material/card";
+@use "@material/typography/mdc-typography";
+@use "@material/tooltip/styles" as tooltip;
+
+
+@include card.core-styles;
+@include list.deprecated-core-styles;
+
+//テキスト部のスタイル
+.my-card-content {
+  padding: 16px;
+}
+
+.my-card-content__title {
+  font-size: 1.25rem;
+  line-height: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.0125em;
+}
+
+.my-card-content__subtext {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.0178571429em;
+  opacity: 0.6;
+}
+
+body {
+    padding: 0;
+    margin: 0 auto;
+}

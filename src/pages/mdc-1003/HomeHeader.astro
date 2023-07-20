@@ -1,0 +1,77 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!-- Home Header Astro Island -->
+<header class="mdc-top-app-bar">
+  <div class="mdc-top-app-bar__row">
+    <section
+      class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
+    >
+      <button
+        class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+        aria-label="Open navigation menu">menu</button
+      >
+      <span class="mdc-top-app-bar__title">{title}</span>
+    </section>
+    <section
+      class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
+      role="toolbar"
+    >
+      <div id="demo-menu" class="mdc-menu-surface--anchor">
+        <button
+          class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+          aria-label="Favorite"
+          id="news_menu"
+          ><div class="mdc-icon-button__ripple"></div>notifications</button
+        >
+        <div class="mdc-menu mdc-menu-surface" id="demo-menu">
+          <ul
+            class="mdc-deprecated-list"
+            role="menu"
+            aria-hidden="true"
+            aria-orientation="vertical"
+            tabindex="-1"
+          >
+            <li class="mdc-deprecated-list-item" role="menuitem">
+              <span class="mdc-deprecated-list-item__ripple"></span>
+              <span class="mdc-deprecated-list-item__text"
+                >【完了】このおしらせ方法および送信方法が変更されました</span
+              >
+            </li>
+            <li class="mdc-deprecated-list-item" role="menuitem">
+              <span class="mdc-deprecated-list-item__ripple"></span>
+              <span class="mdc-deprecated-list-item__text"
+                >【完了】このおしらせ方法および送信方法が変更されました</span
+              >
+            </li>
+            <li class="mdc-deprecated-list-divider" role="separator"></li>
+            <li class="mdc-deprecated-list-item" role="menuitem">
+              <span class="mdc-deprecated-list-item__text" style="margin:auto">
+                <button class="mdc-button mdc-button--outlined">
+                  <span class="mdc-button__ripple"></span>
+                  <span class="mdc-button__focus-ring"></span>
+                  <span class="mdc-button__label">すべてのおしらせを表示</span>
+                </button></span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <button
+        class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+        aria-label="Search">share</button
+      >
+      <button
+        class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+        aria-label="Options">more_vert</button
+      >
+    </section>
+  </div>
+</header>
+<main class="mdc-top-app-bar--fixed-adjust"></main>
+<!-- End Home Header Astro Island -->

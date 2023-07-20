@@ -1,0 +1,10 @@
+@use "@material/top-app-bar/mdc-top-app-bar";
+@use "@material/icon-button/styles";
+@use "@material/list/mdc-list";
+@use "@material/menu-surface/mdc-menu-surface";
+@use "@material/menu/mdc-menu";
+@use "@material/chips/styles" as chips;
+
+body {
+    min-height: 100dvh;
+}
