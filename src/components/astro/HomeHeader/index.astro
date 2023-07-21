@@ -76,6 +76,16 @@ import "../../../components/style/mdc/header.scss";
 </header>
 <main class="mdc-top-app-bar--fixed-adjust"></main>
 <!-- End Home Header Astro Island -->
+<script>
+  import { MDCMenu } from "@material/menu";
+  const menus = document.querySelector<HTMLElement>(".mdc-menu");
+  if (menus) {
+    const menu = new MDCMenu(menus);
+    document.querySelector("#news_menu")?.addEventListener("click", () => {
+      menu.open = true;
+    });
+  }
+</script>
 <style>
   body {
     padding: 0;

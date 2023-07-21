@@ -24,14 +24,14 @@ if (buttonRipples) {
   const buttonRipple = new MDCRipple(buttonRipples);
 }
 
-const lists = document.querySelector<HTMLElement>(".mdc-deprecated-list");
-if (lists) {
-  lists.style.display = "";
-  const list = new MDCList(lists);
+const lists = document.querySelectorAll<HTMLElement>(".mdc-deprecated-list");
+lists.forEach(e => {
+  e.style.display = "";
+  const list = new MDCList(e);
   const listItemRipples = list.listElements.map(
     (listItemEl) => new MDCRipple(listItemEl)
   );
-}
+})
 
 document.querySelectorAll(".mdc-icon-button").forEach((e) => {
   const iconButtonRipple = new MDCRipple(e);

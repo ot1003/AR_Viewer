@@ -1,0 +1,205 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+import "../../components/style/mdc/home.scss";
+import HomeHeader from "../../components/astro/HomeHeader/index.astro"
+---
+
+<Layout title="ホーム">
+	<HomeHeader title="ホーム"/>
+	<div class="mdc-card mdc-card--outlined">
+		<div class="mdc-card__primary-action" tabindex="0">
+			<div class="my-card-content">
+				<div class="my-card-content__title">
+					新サイトへ移行します！
+				</div>
+				<div class="my-card-content__subtext">
+					今後、このサイトは移行されます。詳細は近日中に公開予定です。なお現在、このサイトは最終の情報ではありませんのでご注意ください。（2023/07/15）
+				</div><div class="mdc-card__ripple"></div>
+			</div>
+		</div>
+		<!-- ... additional primary action content ... -->
+		<div class="mdc-card__actions">
+			<div class="mdc-card__action-buttons">
+				<button
+					class="mdc-button mdc-card__action mdc-card__action--button"
+				>
+					<div class="mdc-button__ripple"></div>
+					<span class="mdc-button__label">新サイトへ</span>
+				</button>
+				<button
+					class="mdc-button mdc-card__action mdc-card__action--button"
+					disabled
+				>
+					<div class="mdc-button__ripple"></div>
+					<span class="mdc-button__label"
+						>詳細（近日中公開予定）</span
+					>
+				</button>
+			</div>
+		</div>
+	</div>
+	<span class="mdc-evolution-chip-set" role="grid">
+		<span class="mdc-evolution-chip-set__chips" role="presentation">
+			<span class="mdc-evolution-chip" role="row" id="c0">
+				<span
+					class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+					role="gridcell"
+				>
+					<button
+						class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+						type="button"
+						tabindex="0"
+					>
+						<span
+							class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"
+						></span>
+						<span class="mdc-evolution-chip__text-label"
+							>アカウント一覧</span
+						>
+					</button>
+				</span>
+			</span>
+			<span class="mdc-evolution-chip" role="row" id="c1">
+				<span
+					class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+					role="gridcell"
+				>
+					<button
+						class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+						type="button"
+						tabindex="-1"
+					>
+						<span
+							class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"
+						></span>
+						<span class="mdc-evolution-chip__text-label"
+							>他のアカウント一覧</span
+						>
+					</button>
+				</span>
+			</span>
+			<span class="mdc-evolution-chip" role="row" id="c1">
+				<span
+					class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+					role="gridcell"
+				>
+					<button
+						class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+						type="button"
+						tabindex="-1"
+					>
+						<span
+							class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"
+						></span>
+						<span class="mdc-evolution-chip__text-label"
+							>おしらせ</span
+						>
+					</button>
+				</span>
+			</span>
+		</span>
+	</span>
+	<ul class="mdc-deprecated-list">
+		<li class="mdc-deprecated-list-item" tabindex="0">
+			<span class="mdc-deprecated-list-item__ripple"></span>
+			<span class="mdc-deprecated-list-item__text"
+				>Single-line item</span
+			>
+		</li>
+		<li class="mdc-deprecated-list-item">
+			<span class="mdc-deprecated-list-item__ripple"></span>
+			<span class="mdc-deprecated-list-item__text"
+				>Single-line item</span
+			>
+		</li>
+		<li class="mdc-deprecated-list-item">
+			<span class="mdc-deprecated-list-item__ripple"></span>
+			<span class="mdc-deprecated-list-item__text"
+				>Single-line item</span
+			>
+		</li>
+	</ul>
+
+	<div class="mdc-chip-set mdc-chip-set--choice">
+		<div class="demo-chip mdc-chip" tabindex="0">
+		  <i class="material-icons mdc-chip__icon mdc-chip__icon--leading">face</i>
+		  <div class="mdc-chip__text">Extra Small</div>
+		</div>
+		<div class="demo-chip mdc-chip" tabindex="0">
+		  <i class="material-icons mdc-chip__icon mdc-chip__icon--leading">face</i> 
+		  <div class="mdc-chip__text">Small</div>
+		</div>
+		<div class="demo-chip mdc-chip mdc-chip--selected" tabindex="0">
+		  <i class="material-icons mdc-chip__icon mdc-chip__icon--leading">face</i> 
+		  <div class="mdc-chip__text">Medium</div>
+		</div>
+		<div class="demo-chip mdc-chip" tabindex="0">
+		  <i class="material-icons mdc-chip__icon mdc-chip__icon--leading">face</i> 
+		  <div class="mdc-chip__text">Large</div>
+		</div>
+		<div class="demo-chip mdc-chip" tabindex="0">
+		  <i class="material-icons mdc-chip__icon mdc-chip__icon--leading">face</i> 
+		  <div class="mdc-chip__text">Extra Large</div>
+		</div>
+	  </div>
+	<button
+		id="add-to-favorites"
+		class="mdc-icon-button"
+		aria-label="Add to favorites"
+		aria-pressed="false"
+	>
+		<span class="mdc-icon-button__focus-ring"></span>
+		<span class="material-icons-outlined"> notifications</span>
+		<i class="material-icons mdc-icon-button__icon">favorite_border</i>
+	</button>
+</main>
+</Layout>
+
+<script>
+import "../../components/ts/home.js";
+</script>
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		line-height: 1.6;
+		margin: 1rem 0;
+		border: 1px solid rgba(var(--accent), 25%);
+		background-color: white;
+		padding: 1rem;
+		border-radius: 0.4rem;
+	}
+	.instructions code {
+		font-size: 0.875em;
+		font-weight: bold;
+		background: rgba(var(--accent), 12%);
+		color: rgb(var(--accent));
+		border-radius: 4px;
+		padding: 0.3em 0.45em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>
