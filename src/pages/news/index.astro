@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const posts = await Astro.glob("./old/*.md"); // returns an array of posts that live at ./src/pages/post/*.md
+---
+
+<Layout title="ホーム">
+  <div>
+    {
+      posts.slice(0, 3).map((post) => (
+        <article>
+          <h2>{post.frontmatter.title}</h2>
+          <p>{post.frontmatter.description}</p>
+          <a href={post.url}>Read more</a>
+        </article>
+      ))
+    }
+  </div>
+  <h1>リニューアル前のおしらせ</h1>
+</Layout>

@@ -4,7 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
-import "../../components/style/mdc/header.scss";
+import "../../../components/style/mdc/header.scss";
 ---
 
 <!-- Home Header Astro Island -->
@@ -76,3 +76,9 @@ import "../../components/style/mdc/header.scss";
 </header>
 <main class="mdc-top-app-bar--fixed-adjust"></main>
 <!-- End Home Header Astro Island -->
+<style>
+  body {
+    padding: 0;
+    margin: 0;
+  }
+</style>
