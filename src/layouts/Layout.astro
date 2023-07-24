@@ -1,37 +1,124 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
+import HomeHeader from "../components/astro/HomeHeader/index.astro";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title} | O.T Site（Old）</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | O.T Site（Old）</title>
+  </head>
+  <body>
+    
+      <HomeHeader title={title} />
+
+      <aside class="mdc-drawer sidebar">
+        <div class="mdc-drawer__content">
+          <nav class="mdc-deprecated-list">
+            <a
+              class="mdc-deprecated-list-item mdc-deprecated-list-item--activated"
+              href="#"
+              aria-current="page"
+            >
+              <span class="mdc-deprecated-list-item__ripple"></span>
+              <i
+                class="material-icons-outlined mdc-deprecated-list-item__graphic"
+                aria-hidden="true">home</i
+              >
+              <span class="mdc-deprecated-list-item__text">ホーム</span>
+            </a>
+            <a class="mdc-deprecated-list-item" href="#">
+              <span class="mdc-deprecated-list-item__ripple"></span>
+              <i
+                class="material-icons-outlined mdc-deprecated-list-item__graphic"
+                aria-hidden="true">person_add</i
+              >
+              <span class="mdc-deprecated-list-item__text">アカウント一覧</span>
+            </a>
+            <a class="mdc-deprecated-list-item" href="#">
+              <span class="mdc-deprecated-list-item__ripple"></span>
+              <i
+                class="material-icons-outlined mdc-deprecated-list-item__graphic"
+                aria-hidden="true">contact_support</i
+              >
+              <span class="mdc-deprecated-list-item__text">Drafts</span>
+            </a>
+          </nav>
+        </div>
+      </aside>
+
+      <main
+        class="main-content mdc-top-app-bar--fixed-adjust"
+        id="main-content"
+      >
+        <slot />
+      </main>
+    
+  </body>
 </html>
+<script>
+  import "../components/ts/home.ts";
+</script>
+
 <style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+
+
+  .sidebar {
+    position: fixed;
+    grid-area: sidebar;
+    margin-top: 64px;
+    height: calc(100dvh - 64px);
+
+  }
+  .main-content {
+    height: calc(100dvh - (64px));
+margin-left: 256px;
+  }
+  .wrapper {
+
+  }
+  // Only apply this style if below top app bar.
+  .mdc-top-app-bar {
+    z-index: 7;
+  }
+  :root {
+    --accent: 124, 58, 237;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      #da62c4 30%,
+      white 60%
+    );
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background-color: #f6f6f6;
+  }
+  code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  }
 </style>
+<script>
+  import { MDCMenu } from "@material/menu";
+  const menus = document.querySelector<HTMLElement>(".mdc-menu");
+  if (menus) {
+    const menu = new MDCMenu(menus);
+    document.querySelector("#news_menu")?.addEventListener("click", () => {
+      menu.open = true;
+    });
+  }
+</script>

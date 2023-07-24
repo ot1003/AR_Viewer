@@ -5,16 +5,19 @@ interface Props {
 
 const { title } = Astro.props;
 import "../../../components/style/mdc/header.scss";
+import Tooltip from "../../astro/mdc-tooltip/index.astro";
 ---
 
 <!-- Home Header Astro Island -->
-<header class="mdc-top-app-bar">
+<header
+  class="mdc-top-app-bar"
+>
   <div class="mdc-top-app-bar__row">
     <section
       class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
     >
       <button
-        class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+        class="material-icons-outlined mdc-top-app-bar__navigation-icon mdc-icon-button"
         aria-label="Open navigation menu">menu</button
       >
       <span class="mdc-top-app-bar__title">{title}</span>
@@ -25,9 +28,10 @@ import "../../../components/style/mdc/header.scss";
     >
       <div id="demo-menu" class="mdc-menu-surface--anchor">
         <button
-          class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+          class="material-icons-outlined mdc-top-app-bar__action-item mdc-icon-button"
           aria-label="Favorite"
           id="news_menu"
+          aria-describedby="tooltip-id"
           ><div class="mdc-icon-button__ripple"></div>notifications</button
         >
         <div class="mdc-menu mdc-menu-surface" id="demo-menu">
@@ -64,17 +68,22 @@ import "../../../components/style/mdc/header.scss";
         </div>
       </div>
       <button
-        class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
-        aria-label="Search">share</button
+        class="material-icons-outlined mdc-top-app-bar__action-item mdc-icon-button"
+        aria-label="Search"
+        aria-describedby="tooltip-share"
+        ><div class="mdc-icon-button__ripple"></div>share</button
       >
       <button
-        class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
-        aria-label="Options">more_vert</button
+        class="material-icons-outlined mdc-top-app-bar__action-item mdc-icon-button"
+        aria-label="Options"
+        ><div class="mdc-icon-button__ripple"></div>more_vert</button
       >
     </section>
   </div>
+  
 </header>
-<main class="mdc-top-app-bar--fixed-adjust"></main>
+<Tooltip text="おしらせ" id="tooltip-id" />
+  <Tooltip text="このページを共有" id="tooltip-share" />
 <!-- End Home Header Astro Island -->
 <script>
   import { MDCMenu } from "@material/menu";

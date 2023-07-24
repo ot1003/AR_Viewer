@@ -1,0 +1,31 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Tooltip from "../../components/astro/mdc-tooltip/index.astro"
+import Card from "../../components/astro/Card.astro";
+import HomeHeader from "../../components/astro/HomeHeader/index.astro"
+const posts = await Astro.glob("./old/*.md"); // returns an array of posts that live at ./src/pages/post/*.md
+---
+
+<Layout title="ホーム">
+  <div>
+    {
+      posts.slice(0, 3).map((post) => (
+        <Card
+				href={post.url}
+				title={post.frontmatter.title}
+				body={post.frontmatter.date}
+			/>
+      ))
+    }
+  </div>
+
+  <h1>リニューアル前のおしらせ</h1>
+  <div id="tooltip-id" class="mdc-tooltip" role="tooltip" aria-hidden="true">
+    <div class="mdc-tooltip__surface mdc-tooltip__surface-animation">
+      <span class="mdc-tooltip__label">lorem ipsum dolor<span>
+    </div>
+  </div>
+  
+  <a aria-describedby="tooltip-id" href="www.google.com"> Link </a>
+  <Tooltip text="URL" id="tooltip-id">
+</Layout>

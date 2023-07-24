@@ -2,10 +2,15 @@ import { MDCRipple } from "@material/ripple";
 import { MDCList } from "@material/list";
 import { MDCMenu } from "@material/menu";
 import { MDCChipSet } from "@material/chips";
-
+import {MDCTooltip} from '@material/tooltip';
+import {MDCTopAppBar} from '@material/top-app-bar';
 document.querySelectorAll(".mdc-evolution-chip-set").forEach((ele) => {
   const chipset = new MDCChipSet(ele);
 });
+
+
+
+
 
 const menus = document.querySelector<HTMLElement>(".mdc-menu");
 if (menus) {
@@ -37,3 +42,7 @@ document.querySelectorAll(".mdc-icon-button").forEach((e) => {
   const iconButtonRipple = new MDCRipple(e);
   iconButtonRipple.unbounded = true;
 });
+
+document.querySelectorAll('.mdc-tooltip').forEach((e) => {
+  const tooltip = new MDCTooltip(e);
+})

@@ -1,0 +1,14 @@
+---
+interface Props {
+  id: string;
+  text: string;
+}
+
+const { id, text } = Astro.props;
+---
+
+<div id={id} class="mdc-tooltip" role="tooltip" aria-hidden="true">
+  <div class="mdc-tooltip__surface mdc-tooltip__surface-animation">
+    <span class="mdc-tooltip__label">{text}<span> </span></span>
+  </div>
+</div>

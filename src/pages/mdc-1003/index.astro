@@ -1,0 +1,256 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../components/style/mdc/home.scss";
+import HomeHeader from "../../components/astro/HomeHeader/index.astro";
+---
+
+<Layout title="ホーム">
+  <div class="mdc-card mdc-card--outlined">
+    <div class="mdc-card__primary-action" tabindex="0">
+      <div class="my-card-content">
+        <div class="my-card-content__title">新サイトへ移行します！</div>
+        <div class="my-card-content__subtext">
+          今後、このサイトは移行されます。詳細は近日中に公開予定です。なお現在、このサイトは最終の情報ではありませんのでご注意ください。（2023/07/15）
+        </div><div class="mdc-card__ripple"></div>
+      </div>
+    </div>
+    <!-- ... additional primary action content ... -->
+    <div class="mdc-card__actions">
+      <div class="mdc-card__action-buttons">
+        <button class="mdc-button mdc-card__action mdc-card__action--button">
+          <div class="mdc-button__ripple"></div>
+          <span class="mdc-button__label">新サイトへ</span>
+        </button>
+        <button
+          class="mdc-button mdc-card__action mdc-card__action--button"
+          disabled
+        >
+          <div class="mdc-button__ripple"></div>
+          <span class="mdc-button__label">詳細（近日中公開予定）</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <span class="mdc-evolution-chip-set" role="grid">
+    <span class="mdc-evolution-chip-set__chips" role="presentation">
+      <span class="mdc-evolution-chip" role="row" id="c0">
+        <span
+          class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+          role="gridcell"
+        >
+          <button
+            class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+            type="button"
+            tabindex="0"
+          >
+            <span
+              class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"
+            ></span>
+            <span class="mdc-evolution-chip__text-label">アカウント一覧</span>
+          </button>
+        </span>
+      </span>
+      <span class="mdc-evolution-chip" role="row" id="c1">
+        <span
+          class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+          role="gridcell"
+        >
+          <button
+            class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+            type="button"
+            tabindex="-1"
+          >
+            <span
+              class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"
+            ></span>
+            <span class="mdc-evolution-chip__text-label"
+              >他のアカウント一覧</span
+            >
+          </button>
+        </span>
+      </span>
+      <span class="mdc-evolution-chip" role="row" id="c1">
+        <span
+          class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+          role="gridcell"
+        >
+          <button
+            class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+            type="button"
+            tabindex="-1"
+          >
+            <span
+              class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"
+            ></span>
+            <span class="mdc-evolution-chip__text-label">おしらせ</span>
+          </button>
+        </span>
+      </span>
+    </span>
+  </span>
+
+  <ul
+    class="mdc-deprecated-list mdc-deprecated-list--two-line"
+    role="radiogroup"
+  >
+    <li class="mdc-deprecated-list-item">
+      <span class="mdc-deprecated-list-item__ripple"></span>
+      <span class="mdc-deprecated-list-item__graphic">
+        <svg viewBox="0 0 24 24"
+          ><g
+            ><path
+              d="M14.258 10.152L23.176 0h-2.113l-7.747 8.813L7.133 0H0l9.352 13.328L0 23.973h2.113l8.176-9.309 6.531 9.309h7.133zm-2.895 3.293l-.949-1.328L2.875 1.56h3.246l6.086 8.523.945 1.328 7.91 11.078h-3.246zm0 0"
+            ></path></g
+          ></svg
+        >
+      </span>
+      <span class="mdc-deprecated-list-item__text">
+        <span class="mdc-deprecated-list-item__primary-text">X</span>
+        <span class="mdc-deprecated-list-item__secondary-text">@O_T_1003</span>
+      </span>
+    </li>
+    <li class="mdc-deprecated-list-item" role="radio" aria-checked="false">
+      <span class="mdc-deprecated-list-item__ripple"></span>
+      <span class="mdc-deprecated-list-item__graphic">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          aria-label="Threads"
+          class="x1ypdohk x13dflua x11xpdln xus2keu xk4oym4"
+          viewBox="0 0 192 192"
+        >
+          <path
+            d="M141.537 88.988a66.667 66.667 0 0 0-2.518-1.143c-1.482-27.307-16.403-42.94-41.457-43.1h-.34c-14.986 0-27.449 6.396-35.12 18.036l13.779 9.452c5.73-8.695 14.724-10.548 21.348-10.548h.229c8.249.053 14.474 2.452 18.503 7.129 2.932 3.405 4.893 8.111 5.864 14.05-7.314-1.243-15.224-1.626-23.68-1.14-23.82 1.371-39.134 15.264-38.105 34.568.522 9.792 5.4 18.216 13.735 23.719 7.047 4.652 16.124 6.927 25.557 6.412 12.458-.683 22.231-5.436 29.049-14.127 5.178-6.6 8.453-15.153 9.899-25.93 5.937 3.583 10.337 8.298 12.767 13.966 4.132 9.635 4.373 25.468-8.546 38.376-11.319 11.308-24.925 16.2-45.488 16.351-22.809-.169-40.06-7.484-51.275-21.742C35.236 139.966 29.808 120.682 29.605 96c.203-24.682 5.63-43.966 16.133-57.317C56.954 24.425 74.204 17.11 97.013 16.94c22.975.17 40.526 7.52 52.171 21.847 5.71 7.026 10.015 15.86 12.853 26.162l16.147-4.308c-3.44-12.68-8.853-23.606-16.219-32.668C147.036 9.607 125.202.195 97.07 0h-.113C68.882.194 47.292 9.642 32.788 28.08 19.882 44.485 13.224 67.315 13.001 95.932L13 96v.067c.224 28.617 6.882 51.447 19.788 67.854C47.292 182.358 68.882 191.806 96.957 192h.113c24.96-.173 42.554-6.708 57.048-21.189 18.963-18.945 18.392-42.692 12.142-57.27-4.484-10.454-13.033-18.945-24.723-24.553ZM98.44 129.507c-10.44.588-21.286-4.098-21.82-14.135-.397-7.442 5.296-15.746 22.461-16.735 1.966-.114 3.895-.169 5.79-.169 6.235 0 12.068.606 17.371 1.765-1.978 24.702-13.58 28.713-23.802 29.274Z"
+            class="xmcdc9a"></path>
+        </svg>
+      </span>
+      <span class="mdc-deprecated-list-item__text">
+        <span class="mdc-deprecated-list-item__primary-text">Threads</span>
+        <span class="mdc-deprecated-list-item__secondary-text">@O_T_1003</span>
+      </span>
+      <span class="mdc-deprecated-list-item__meta"> ああ</span>
+    </li>
+  </ul>
+  <button
+    id="basic-switch"
+    class="mdc-switch mdc-switch--unselected"
+    type="button"
+    role="switch"
+    aria-checked="false"
+  >
+    <div class="mdc-switch__track"></div>
+    <div class="mdc-switch__handle-track">
+      <div class="mdc-switch__handle">
+        <div class="mdc-switch__shadow">
+          <div class="mdc-elevation-overlay"></div>
+        </div>
+        <div class="mdc-switch__ripple"></div>
+        <div class="mdc-switch__icons">
+          <svg
+            class="mdc-switch__icon mdc-switch__icon--on"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19.69,5.23L8.96,15.96l-4.23-4.23L2.96,13.5l6,6L21.46,7L19.69,5.23z"
+            ></path>
+          </svg>
+          <svg
+            class="mdc-switch__icon mdc-switch__icon--off"
+            viewBox="0 0 24 24"
+          >
+            <path d="M20 13H4v-2h16v2z"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </button>
+  <label for="basic-switch">off/on</label>
+  <ul class="mdc-deprecated-list" role="radiogroup">
+	<li class="mdc-deprecated-list-item" role="radio" aria-checked="false">
+	  <span class="mdc-deprecated-list-item__ripple"></span>
+	  <span class="mdc-deprecated-list-item__graphic">
+		<div class="mdc-radio">
+		  <input class="mdc-radio__native-control"
+				type="radio"
+				id="demo-list-radio-item-1"
+				name="demo-list-radio-item-group"
+				value="1">
+		  <div class="mdc-radio__background">
+			<div class="mdc-radio__outer-circle"></div>
+			<div class="mdc-radio__inner-circle"></div>
+		  </div>
+		</div>
+	  </span>
+	  <label class="mdc-deprecated-list-item__text" for="basic-switch">Option 1</label>
+	</li>
+
+	<li class="mdc-deprecated-list-item" role="radio" aria-checked="false">
+	  <span class="mdc-deprecated-list-item__ripple"></span>
+	  
+	  <label class="mdc-deprecated-list-item__text" for="demo-list-radio-item-3">Option 3</label><span class="mdc-deprecated-list-item__meta">
+		<div class="mdc-radio">
+		  <input class="mdc-radio__native-control"
+				type="radio"
+				id="demo-list-radio-item-3"
+				name="demo-list-radio-item-group"
+				value="3">
+		  <div class="mdc-radio__background">
+			<div class="mdc-radio__outer-circle"></div>
+			<div class="mdc-radio__inner-circle"></div>
+		  </div>
+		</div>
+	  </span>
+	</li>
+  </ul>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .instructions {
+    line-height: 1.6;
+    margin: 1rem 0;
+    border: 1px solid rgba(var(--accent), 25%);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.4rem;
+  }
+  .instructions code {
+    font-size: 0.875em;
+    font-weight: bold;
+    background: rgba(var(--accent), 12%);
+    color: rgb(var(--accent));
+    border-radius: 4px;
+    padding: 0.3em 0.45em;
+  }
+  .instructions strong {
+    color: rgb(var(--accent));
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+  }
+</style>
+<script>
+  import { MDCSwitch } from "@material/switch";
+
+  for (const el of document.querySelectorAll(".mdc-switch")) {
+    const switchControl = new MDCSwitch(el);
+  }
+</script>
