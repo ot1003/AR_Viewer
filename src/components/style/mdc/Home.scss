@@ -10,6 +10,8 @@
 @use "@material/chips/styles" as chips;
 @use "@material/drawer";
 @use "@material/switch/styles";
+@use "@material/chips/deprecated/mdc-chips";
+
 
 @include card.core-styles;
 @include list.deprecated-core-styles;
