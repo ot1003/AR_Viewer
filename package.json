@@ -17,6 +17,7 @@
     "solid-js": "^1.7.8"
   },
   "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^1.0.1",
     "sass": "^1.63.6"
   },
   "main": "index.js",

@@ -1,11 +1,17 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import basicSsl from "@vitejs/plugin-basic-ssl";
 
 import solidJs from "@astrojs/solid-js";
 
 // https://astro.build/config
 export default defineConfig({
-  server: {
-    host: true
+  vite: {
+    // Example: Add custom vite plugins directly to your Astro project
+    plugins: [basicSsl()],
   },
-  integrations: [solidJs()]
+
+  server: {
+    host: true,
+  },
+  integrations: [solidJs()],
 });

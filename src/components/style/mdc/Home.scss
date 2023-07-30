@@ -1,3 +1,9 @@
+@use "@material/theme" with (
+  $primary: #00949d,
+  $secondary: #feeae6,
+  $on-primary: #fff,
+  $on-secondary: #442b2d,
+);
 @use "@material/button/styles" as button;
 @use "@material/list";
 @use "@material/card";
@@ -11,13 +17,23 @@
 @use "@material/drawer";
 @use "@material/switch/styles";
 @use "@material/chips/deprecated/mdc-chips";
-
+@use "@material/dialog";
+@use "@material/snackbar/mdc-snackbar";
+@include dialog.core-styles;
 
 @include card.core-styles;
 @include list.deprecated-core-styles;
 @include drawer.core-styles;
 @include drawer.dismissible-core-styles;
 @include drawer.modal-core-styles;
+
+
+.a2a_label {
+  display: none;
+}
+body .a2a_default_style:not(.a2a_flex_style) a {
+  padding: 0px
+}
 
 body {
     min-height: 100dvh;
@@ -26,6 +42,12 @@ body {
   // Safari Bug fix
   display: block;
 }
+
+.sidebar {
+  margin-top: 64px;
+  position: fixed;
+}
+
 //テキスト部のスタイル
 .my-card-content {
   padding: 16px;
@@ -52,4 +74,20 @@ body {
 }
 .mdc-tooltip__surface {
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.main-content {
+  height: calc(100dvh - (64px));
+margin-left: 256px;
+}
+
+@media screen and (max-width:480px) {
+  .sidebar {
+    display: none;
+  }
+  .main-content {
+    height: auto;
+    margin-left: 0;
+  }
 }

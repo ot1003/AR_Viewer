@@ -4,20 +4,59 @@ import HomeHeader from "../components/astro/HomeHeader/index.astro";
 import Tooltip from "../components/astro/mdc-tooltip/index.astro";
 import "../components/style/mdc/home.scss";
 import Layout from "./Layout.astro";
-
+import Footer from "../components/astro/footer/index.astro";
 ---
-<Layout title={frontmatter.title}>
+
+<Layout title={frontmatter.title}><div style="padding:10px">
+    <div class="mdc-card mdc-card--outlined">
+      <div class="mdc-card__primary-action" tabindex="0">
+        <div class="my-card-content">
+          <div class="my-card-content__subtext">
+            このおしらせはリニューアル前の内容をそのまま複製したものです。このおしらせの内容は古い場合がありますのでご注意ください。
+          </div><div class="mdc-card__ripple"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="PostTitle">
     <h1 class="mdc-typography--headline4">{frontmatter.title}</h1>
-    <h1 class="mdc-typography--button">@{frontmatter.author}</h1>
-    <span class="mdc-evolution-chip mdc-evolution-chip--disabled" role="presentation" id="c6">
-      <span class="mdc-evolution-chip__action mdc-evolution-chip__action--primary" role="option" aria-selected="false" tabindex="0">
-        <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"></span>
-        <span class="mdc-evolution-chip__graphic">
-          <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary material-icons-outlined">perm_identity</span> <!-- optional -->
-        </span>
-        <span class="mdc-evolution-chip__text-label">{frontmatter.author}</span>
-      </span>
-    </span>
+  </div>
+  
+  <div class="mdc-typography--body1">
     <slot />
-    <p>Written on: {frontmatter.date}</p>
+  </div>
+  <p>Written on: {frontmatter.date}</p>
+  <Footer />
 </Layout>
+
+<style>
+  .my-card-content__subtext {
+    font-size: 1.05rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.0178571429em;
+    opacity: 0.6;
+  }
+  .mdc-typography--body1 {
+    padding: 10px;
+    margin: 10px;
+  }
+  .mdc-typography--headline4 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  .PostTitle {
+    border-radius: 0px;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    padding: 25px 10px;
+    justify-content: center;
+    background-color: rgba(0, 148, 157, 0.12);
+    color: rgba(13, 75, 78, 0.87);
+    margin-bottom: 0;
+    height: calc(50px + 3em);
+  }
+</style>

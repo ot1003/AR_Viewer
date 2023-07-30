@@ -1,0 +1,245 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+import "../../../components/style/mdc/header.scss";
+import Tooltip from "../../astro/mdc-tooltip/index.astro";
+---
+
+<!-- Home Header Astro Island -->
+<hr />
+<div id="demo-menu" class="mdc-menu-surface--anchor" style="margin:10px;">
+  <button
+    class="material-icons-outlined mdc-top-app-bar__action-item mdc-icon-button"
+    aria-label="Favorite"
+    id="footer_share"
+    aria-describedby="tooltip-id"
+    ><div class="mdc-icon-button__ripple"></div>share</button
+  >
+  <div class="mdc-menu mdc-menu-surface" id="footer_share_menu">
+    <ul class="mdc-deprecated-list" role="radiogroup">
+      <li class="mdc-deprecated-list-item" id="LinkCopy">
+        <span class="mdc-deprecated-list-item__ripple"></span>
+        <span class="mdc-deprecated-list-item__graphic">
+          <span class="material-icons-outlined"> link</span>
+        </span>
+        <span class="mdc-deprecated-list-item__text"> リンクをコピー</span>
+      </li>
+      <li class="mdc-deprecated-list-item" id="webpage_share">
+        <span class="mdc-deprecated-list-item__ripple"></span>
+        <span class="mdc-deprecated-list-item__graphic">
+          <span class="material-icons-outlined"> share</span>
+        </span>
+        <span class="mdc-deprecated-list-item__text"> 他のアプリで共有</span>
+      </li>
+    </ul>
+  </div>
+  <button
+    class="material-icons-outlined mdc-top-app-bar__action-item mdc-icon-button"
+    aria-label="Favorite"
+    id="footer_share"
+    aria-describedby="tooltip-share"
+    aria-describedby="tooltip-id"
+    ><div class="mdc-icon-button__ripple"></div>menu</button
+  >
+</div>
+
+<div class="mdc-dialog">
+  <div class="mdc-dialog__container">
+    <div
+      class="mdc-dialog__surface"
+      role="alertdialog"
+      aria-modal="true"
+      aria-labelledby="my-dialog-title"
+      aria-describedby="my-dialog-content"
+    >
+      <h2 class="mdc-dialog__title" id="my-dialog-title">
+        <!--
+    -->共有(AddToAny)<!--
+  -->
+      </h2>
+      <div class="mdc-dialog__content" id="my-dialog-content">
+        <p>
+          Web Share APIを開けませんでした。代わりにAddToAnyで共有してください。
+        </p>
+        <div class="a2a_scroll">
+          <!-- AddToAny BEGIN -->
+          <div class="a2a_kit a2a_kit_size_64 a2a_default_style">
+            <div class="a2a_w">
+              <a class="a2a_button_twitter"></a>
+            </div>
+            <div class="a2a_w">
+              <a class="a2a_button_facebook"></a>
+            </div>
+            <div class="a2a_w">
+              <a class="a2a_button_email"></a>
+            </div>
+            <div class="a2a_w">
+              <a class="a2a_button_line"></a>
+            </div>
+            <div class="a2a_w">
+              <a class="a2a_button_hatena"></a>
+            </div>
+            <div class="a2a_w">
+              <a class="a2a_button_mastodon"></a>
+            </div>
+            <div class="a2a_w">
+              <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+            </div>
+          </div>
+          <script async src="https://static.addtoany.com/menu/page.js"></script>
+          <!-- AddToAny END -->
+        </div>
+      </div>
+      <div class="mdc-dialog__actions">
+        <button
+          type="button"
+          class="mdc-button mdc-dialog__button"
+          data-mdc-dialog-action="cancel"
+        >
+          <div class="mdc-button__ripple"></div>
+          <span class="mdc-button__label">OK</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mdc-dialog__scrim"></div>
+
+<aside class="mdc-snackbar">
+  <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+    <div class="mdc-snackbar__label" aria-atomic="false">
+      共有画面を開けませんでした
+    </div>
+    <div class="mdc-snackbar__actions" aria-atomic="true">
+      <button type="button" class="mdc-button mdc-snackbar__action">
+        <div class="mdc-button__ripple"></div>
+        <span class="mdc-button__label">OK</span>
+      </button>
+    </div>
+  </div>
+</aside>
+
+<aside class="mdc-snackbar" id="copyCancel">
+  <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+    <div class="mdc-snackbar__label" aria-atomic="false">
+      コピーに失敗しました
+    </div>
+    <div class="mdc-snackbar__actions" aria-atomic="true">
+      <button type="button" class="mdc-button mdc-snackbar__action">
+        <div class="mdc-button__ripple"></div>
+        <span class="mdc-button__label">OK</span>
+      </button>
+    </div>
+  </div>
+</aside>
+
+<aside class="mdc-snackbar" id="copyok">
+  <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+    <div class="mdc-snackbar__label" aria-atomic="false">
+      コピーしました
+    </div>
+    <div class="mdc-snackbar__actions" aria-atomic="true">
+      <button type="button" class="mdc-button mdc-snackbar__action">
+        <div class="mdc-button__ripple"></div>
+        <span class="mdc-button__label">OK</span>
+      </button>
+    </div>
+  </div>
+</aside>
+<!-- End Home Header Astro Island -->
+<script>
+  import { MDCMenu } from "@material/menu";
+  import { MDCList } from "@material/list";
+  import { MDCDialog } from "@material/dialog";
+  import { MDCSnackbar } from "@material/snackbar";
+  const snackbar = new MDCSnackbar(document.querySelector(".mdc-snackbar"));
+  const snackbar_copyok = new MDCSnackbar(document.querySelector(".mdc-snackbar#copyok"));
+  const snackbar_copyCancel = new MDCSnackbar(document.querySelector(".mdc-snackbar#copyCancel"));
+  const menus = document.querySelector<HTMLElement>(
+    ".mdc-menu#footer_share_menu"
+  );
+  if (menus) {
+    const menu = new MDCMenu(menus);
+    document.querySelector("#footer_share")?.addEventListener("click", () => {
+      menu.open = true;
+    });
+    if (!navigator.share) {
+    // document.querySelector("#webpage_share").remove();
+    }
+  }
+  const shareData = {
+    title: "",
+    text: "",
+    url: "",
+  };
+
+  const dialog = new MDCDialog(document.querySelector(".mdc-dialog"));
+
+  // シェアは「ユーザーによる有効化」により起動させる必要があります
+  document
+    .querySelector("#webpage_share")
+    ?.addEventListener("click", async () => {
+      if (!!navigator.share) {
+        try {
+          await navigator.share(shareData);
+        } catch (err) {}
+      } else {
+        snackbar.open();
+      }
+    });
+    document.querySelector("#LinkCopy")?.addEventListener("click",() => {
+      if(navigator.clipboard) {
+        const btn_content = location.href;
+    navigator.clipboard.writeText(btn_content)
+        .then(() => {
+          snackbar_copyok.open();
+            console.log("Success!");
+        },
+        () => {
+          snackbar_copyCancel.open();
+           console.log("Ops, something went wrong...");
+        });
+      } else {
+        snackbar_copyCancel.open();
+      }
+      
+    })
+</script>
+<style>
+  .a2a_scroll {
+    display: block;
+    overflow-x: scroll;
+  }
+  .a2a_w {
+    overflow: hidden;
+    width: 64px;
+    height: 64px;
+  }
+  .a2a_kit {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: auto;
+  }
+  .mdc-dialog__surface {
+    overflow: hidden;
+  }
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  hr {
+    border-bottom-color: rgba(0, 0, 0, 0.12);
+    display: block;
+    user-select: none;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    margin: 1em 0;
+    padding: 0;
+    speak: none;
+  }
+</style>
