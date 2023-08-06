@@ -1,31 +1,55 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Tooltip from "../../components/astro/mdc-tooltip/index.astro"
+import Tooltip from "../../components/astro/mdc-tooltip/index.astro";
 import Card from "../../components/astro/Card.astro";
-import HomeHeader from "../../components/astro/HomeHeader/index.astro"
+import HomeHeader from "../../components/astro/HomeHeader/index.astro";
 const posts = await Astro.glob("./old/*.md"); // returns an array of posts that live at ./src/pages/post/*.md
 ---
 
-<Layout title="ホーム">
+<Layout title="おしらせ">
   <div>
-    {
-      posts.slice(0, 3).map((post) => (
-        <Card
-				href={post.url}
-				title={post.frontmatter.title}
-				body={post.frontmatter.date}
-			/>
-      ))
-    }
+    <div style="padding:10px">
+      <div class="mdc-card mdc-card--outlined">
+        {
+          posts.slice(0, 3).map((post) => (
+            <a href={post.url} class="mdc-card__primary-action" tabindex="0">
+              <div class="my-card-content">
+                <div class="my-card-content__title">
+                  {post.frontmatter.title}
+                </div>
+                <>
+                  <div class="my-card-content__subtext">
+                    {post.frontmatter.date}
+                  </div>
+                  <div class="mdc-card__ripple" />
+                </>
+              </div>
+            </a>
+
+          ))
+        }
+      </div>
+    </div>
   </div>
 
   <h1>リニューアル前のおしらせ</h1>
   <div id="tooltip-id" class="mdc-tooltip" role="tooltip" aria-hidden="true">
     <div class="mdc-tooltip__surface mdc-tooltip__surface-animation">
-      <span class="mdc-tooltip__label">lorem ipsum dolor<span>
+      <span class="mdc-tooltip__label">lorem ipsum dolor<span> </span></span>
+
+      <a aria-describedby="tooltip-id" href="www.google.com"> Link</a>
+      <Tooltip text="URL" id="tooltip-id" />
     </div>
   </div>
-  
-  <a aria-describedby="tooltip-id" href="www.google.com"> Link </a>
-  <Tooltip text="URL" id="tooltip-id">
 </Layout>
+
+<style>
+ .mdc-card  .mdc-card__primary-action:not(:last-child) {
+  border-bottom-color: rgba(0, 0, 0, 0.12);
+    display: block;
+    user-select: none;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    speak: none;
+  }
+</style>

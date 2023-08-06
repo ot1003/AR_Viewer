@@ -2,23 +2,34 @@
   $primary: #00949d,
   $secondary: #feeae6,
   $on-primary: #fff,
-  $on-secondary: #442b2d,
+  $on-secondary: #442b2d
 );
-@use "@material/button/styles" as button;
+@use "@material/button/styles";
+@use "@material/button";
 @use "@material/list";
 @use "@material/card";
 @use "@material/typography/mdc-typography";
 @use "@material/tooltip/styles" as tooltip;
 @use "@material/top-app-bar/mdc-top-app-bar";
 @use "@material/icon-button/styles" as icon-button;
+@use "@material/menu-surface";
 @use "@material/menu-surface/mdc-menu-surface";
+@use "@material/menu";
 @use "@material/menu/mdc-menu";
 @use "@material/chips/styles" as chips;
 @use "@material/drawer";
-@use "@material/switch/styles";
+@use "@material/switch/styles" as S;
 @use "@material/chips/deprecated/mdc-chips";
 @use "@material/dialog";
+@use "@material/snackbar";
 @use "@material/snackbar/mdc-snackbar";
+
+@use "@material/floating-label/mdc-floating-label";
+@use "@material/line-ripple/mdc-line-ripple";
+@use "@material/notched-outline/mdc-notched-outline";
+@use "@material/textfield";
+
+@include textfield.core-styles;
 @include dialog.core-styles;
 
 @include card.core-styles;
@@ -26,18 +37,35 @@
 @include drawer.core-styles;
 @include drawer.dismissible-core-styles;
 @include drawer.modal-core-styles;
-
-
+.mdc-text-field--outlined {
+  @include textfield.outline-shape-radius(10px);
+}
+.mdc-card {
+  @include card.shape-radius(10px);
+}
+.mdc-button {
+  @include button.shape-radius(10px);
+}
+.mdc-snackbar {
+  @include snackbar.shape-radius(10px);
+}
+.mdc-menu {
+  @include menu-surface.shape-radius(10px);
+}
+.mdc-dialog {
+  @include dialog.shape-radius(10px);
+}
 .a2a_label {
   display: none;
 }
 body .a2a_default_style:not(.a2a_flex_style) a {
-  padding: 0px
+  padding: 0px;
+}
+a[href] {
+  color: inherit;
+  text-decoration:none;
 }
 
-body {
-    min-height: 100dvh;
-}
 .mdc-deprecated-list .mdc-deprecated-list-item__graphic {
   // Safari Bug fix
   display: block;
@@ -69,8 +97,8 @@ body {
 }
 
 body {
-    padding: 0;
-    margin: 0 auto;
+  padding: 0;
+  margin: 0 auto;
 }
 .mdc-tooltip__surface {
   backdrop-filter: blur(12px);
@@ -79,10 +107,10 @@ body {
 
 .main-content {
   height: calc(100dvh - (64px));
-margin-left: 256px;
+  margin-left: 256px;
 }
 
-@media screen and (max-width:480px) {
+@media screen and (max-width: 480px) {
   .sidebar {
     display: none;
   }

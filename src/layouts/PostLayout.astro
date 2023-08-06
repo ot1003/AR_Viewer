@@ -7,7 +7,13 @@ import Layout from "./Layout.astro";
 import Footer from "../components/astro/footer/index.astro";
 ---
 
-<Layout title={frontmatter.title}><div style="padding:10px">
+<Layout title={frontmatter.title}>
+  <div class="PostTitleW">
+    <div class="PostTitle">
+      <h4 class="mdc-typography--headline5">{frontmatter.title}</h4>
+    </div><p class="postday">{frontmatter.date}</p>
+  </div>
+  <div style="padding:10px">
     <div class="mdc-card mdc-card--outlined">
       <div class="mdc-card__primary-action" tabindex="0">
         <div class="my-card-content">
@@ -18,15 +24,9 @@ import Footer from "../components/astro/footer/index.astro";
       </div>
     </div>
   </div>
-  <div class="PostTitle">
-    <h1 class="mdc-typography--headline4">{frontmatter.title}</h1>
-  </div>
-  
   <div class="mdc-typography--body1">
     <slot />
   </div>
-  <p>Written on: {frontmatter.date}</p>
-  <Footer />
 </Layout>
 
 <style>
@@ -40,23 +40,39 @@ import Footer from "../components/astro/footer/index.astro";
   .mdc-typography--body1 {
     padding: 10px;
     margin: 10px;
+    padding-top: 0;
+    margin-top: 0;
   }
-  .mdc-typography--headline4 {
+  .mdc-typography--body1 hr {
+    border-bottom-color: rgba(0, 0, 0, 0.12);
+    display: none;
+  }
+  .mdc-typography--headline5 {
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+    margin: 0;
   }
   .PostTitle {
     border-radius: 0px;
     margin-top: 0;
     display: flex;
     align-items: center;
-    padding: 25px 10px;
+
     justify-content: center;
+
+    margin-bottom: 0;
+  }
+  .PostTitleW {
+    padding: 0px 10px;
     background-color: rgba(0, 148, 157, 0.12);
     color: rgba(13, 75, 78, 0.87);
-    margin-bottom: 0;
-    height: calc(50px + 3em);
+  }
+  .postday {
+    display: flex;
+
+    padding-top: 0;
+    margin: 0;
   }
 </style>

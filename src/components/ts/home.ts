@@ -3,6 +3,8 @@ import { MDCList } from "@material/list";
 import { MDCMenu } from "@material/menu";
 import { MDCChipSet } from "@material/chips";
 import {MDCTooltip} from '@material/tooltip';
+import {MDCTextField} from '@material/textfield';
+
 import {MDCTopAppBar} from '@material/top-app-bar';
 document.querySelectorAll(".mdc-evolution-chip-set").forEach((ele) => {
   const chipset = new MDCChipSet(ele);
@@ -45,4 +47,8 @@ document.querySelectorAll(".mdc-icon-button").forEach((e) => {
 
 document.querySelectorAll('.mdc-tooltip').forEach((e) => {
   const tooltip = new MDCTooltip(e);
+})
+
+document.querySelectorAll('.mdc-text-field').forEach((e) => {
+  const textField = new MDCTextField(e);
 })

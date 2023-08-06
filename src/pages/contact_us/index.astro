@@ -1,0 +1,83 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../components/style/mdc/home.scss";
+import HomeHeader from "../../components/astro/HomeHeader/index.astro";
+const visible = true;
+---
+
+<Layout title="お問い合わせ">
+    <div class="TopMessage">
+  <p>お問い合わせフォームです。<br>お問い合わせの前にこちらをご覧ください。</p>
+
+  <p>
+    メールアドレスは返信が必要な時のみ入力してください。内容の返信できませんのでご注意ください。
+  </p></div>
+  <div class="fromGrid">
+    <label
+      class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+    >
+      <span class="mdc-notched-outline">
+        <span class="mdc-notched-outline__leading"></span>
+        <span class="mdc-notched-outline__notch">
+          <span class="mdc-floating-label" id="my-label-id">メールアドレス</span
+          >
+        </span>
+        <span class="mdc-notched-outline__trailing"></span>
+      </span>
+      <i
+        class="material-icons-outlined mdc-text-field__icon mdc-text-field__icon--leading"
+        tabindex="0"
+        role="button">mail</i
+      >
+      <input
+        class="mdc-text-field__input"
+        type="text"
+        aria-labelledby="my-label-id"
+      />
+    </label>
+
+    <label
+      class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
+    >
+      <span class="mdc-notched-outline">
+        <span class="mdc-notched-outline__leading"></span>
+        <span class="mdc-notched-outline__notch">
+          <span class="mdc-floating-label" id="my-label-id"
+            >お問い合わせ内容</span
+          >
+        </span>
+        <span class="mdc-notched-outline__trailing"></span>
+      </span>
+
+      <textarea
+        class="mdc-text-field__input"
+        rows="8"
+        cols="40"
+        aria-label="Label"
+        aria-labelledby="my-label-id"></textarea>
+    </label>
+    <button class="mdc-button mdc-button--unelevated gb">
+        <span class="mdc-button__ripple"></span>
+        <span class="mdc-button__label">送信する</span>
+      </button>
+  </div>
+</Layout>
+
+<style>
+  .fromGrid {
+    display: grid;
+    gap: 10px;
+    margin: 10px;
+  }
+  .TopMessage {
+    margin: 10px;
+  }
+  .gb {
+    height: 48px;
+  }
+</style>
+<script>
+    document.querySelector(".gb")?.addEventListener("click",() => {
+        alert("まだ、この機能はご利用いただけません。")
+    })
+</script>
