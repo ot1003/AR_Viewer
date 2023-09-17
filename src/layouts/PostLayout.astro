@@ -1,19 +1,32 @@
 ---
-const { frontmatter } = Astro.props;
-import HomeHeader from "../components/astro/HomeHeader/index.astro";
-import Tooltip from "../components/astro/mdc-tooltip/index.astro";
-import "../components/style/mdc/home.scss";
+const { frontmatter, headings } = Astro.props;
+const numberOfPosts = frontmatter;
 import Layout from "./Layout.astro";
-import Footer from "../components/astro/footer/index.astro";
----
 
-<Layout title={frontmatter.title}>
+const path = frontmatter.url.split("/");
+const hj = path.length;
+---
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@3.0.1/github-markdown.min.css">
+
+<script>
+  const { frontmatter, headings } = Astro.props;
+  alert(frontmatter.title);
+</script>
+<Layout title={hj}>
   <div class="PostTitleW">
+    <a href="/new_news" class="mdc-button mdc-button--icon-leading">
+      <span class="mdc-button__ripple"></span>
+      <span class="mdc-button__focus-ring"></span>
+      <i class="material-icons-outlined mdc-button__icon" aria-hidden="true"
+        >arrow_back</i
+      >
+      <span class="mdc-button__label">おしらせへ</span>
+    </a>
     <div class="PostTitle">
       <h4 class="mdc-typography--headline5">{frontmatter.title}</h4>
     </div><p class="postday">{frontmatter.date}</p>
   </div>
-  <div style="padding:10px">
+  <!--<div style="padding:10px">
     <div class="mdc-card mdc-card--outlined">
       <div class="mdc-card__primary-action" tabindex="0">
         <div class="my-card-content">
@@ -23,13 +36,32 @@ import Footer from "../components/astro/footer/index.astro";
         </div>
       </div>
     </div>
+  </div>-->
+  <div class="mdc-typography--body1" id="postarea">
+    <div class="markdown-body">
+      <slot />
+    </div>
+    <a href="/new_news" class="mdc-button mdc-button--icon-leading">
+      <span class="mdc-button__ripple"></span>
+      <span class="mdc-button__focus-ring"></span>
+      <i class="material-icons-outlined mdc-button__icon" aria-hidden="true"
+        >arrow_back</i
+      >
+      <span class="mdc-button__label">おしらせ一覧</span>
+    </a>
   </div>
-  <div class="mdc-typography--body1">
-    <slot />
-  </div>
+  <hr />
+  {
+    frontmatter.url.prev ? (
+      <>
+        <a href={frontmatter.url.prev}>Previous</a> |{" "}
+      </>
+    ) : null
+  }
+  {frontmatter.url.next ? <a href={frontmatter.url.next}>Next</a> : null}
 </Layout>
 
-<style>
+<style lang="scss">
   .my-card-content__subtext {
     font-size: 1.05rem;
     line-height: 1.25rem;
@@ -48,10 +80,6 @@ import Footer from "../components/astro/footer/index.astro";
     display: none;
   }
   .mdc-typography--headline5 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
     margin: 0;
   }
   .PostTitle {
@@ -63,9 +91,10 @@ import Footer from "../components/astro/footer/index.astro";
     justify-content: center;
 
     margin-bottom: 0;
+    padding: 0.5em 0;
   }
   .PostTitleW {
-    padding: 0px 10px;
+    padding: 10px 20px;
     background-color: rgba(0, 148, 157, 0.12);
     color: rgba(13, 75, 78, 0.87);
   }
@@ -74,5 +103,33 @@ import Footer from "../components/astro/footer/index.astro";
 
     padding-top: 0;
     margin: 0;
+  }
+  #postarea {
+    :global(iframe) {
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      border-radius: 10px;
+      margin-inline: auto;
+      display: block;
+    }
+    :global(h2) {
+      -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: Roboto, sans-serif;
+    font-family: var(--mdc-typography-headline5-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
+    font-size: 1.5rem;
+    font-size: var(--mdc-typography-headline5-font-size, 1.5rem);
+    line-height: 2rem;
+    line-height: var(--mdc-typography-headline5-line-height, 2rem);
+    font-weight: 400;
+    font-weight: var(--mdc-typography-headline5-font-weight, 400);
+    letter-spacing: normal;
+    letter-spacing: var(--mdc-typography-headline5-letter-spacing, normal);
+    text-decoration: inherit;
+    text-decoration: var(--mdc-typography-headline5-text-decoration, inherit);
+    text-transform: inherit;
+    text-transform: var(--mdc-typography-headline5-text-transform, inherit);
+    }
   }
 </style>

@@ -1,17 +1,18 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import "../../components/style/mdc/home.scss";
-import HomeHeader from "../../components/astro/HomeHeader/index.astro";
 const visible = true;
 ---
 
 <Layout title="お問い合わせ">
-    <div class="TopMessage">
-  <p>お問い合わせフォームです。<br>お問い合わせの前にこちらをご覧ください。</p>
+  <div class="TopMessage">
+    <p>
+      お問い合わせフォームです。<br />お問い合わせの前にこちらをご覧ください。正常に動作しない場合は<a href="./embedded">埋め込み版</a>をご利用ください。
+    </p>
 
-  <p>
-    メールアドレスは返信が必要な時のみ入力してください。内容の返信できませんのでご注意ください。
-  </p></div>
+    <p>
+      メールアドレスは返信が必要な時のみ入力してください。内容の返信できませんのでご注意ください。
+    </p>
+  </div>
   <div class="fromGrid">
     <label
       class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
@@ -31,7 +32,7 @@ const visible = true;
       >
       <input
         class="mdc-text-field__input"
-        type="text"
+        type="email"
         aria-labelledby="my-label-id"
       />
     </label>
@@ -54,12 +55,38 @@ const visible = true;
         rows="8"
         cols="40"
         aria-label="Label"
+        required
         aria-labelledby="my-label-id"></textarea>
     </label>
     <button class="mdc-button mdc-button--unelevated gb">
-        <span class="mdc-button__ripple"></span>
-        <span class="mdc-button__label">送信する</span>
-      </button>
+      <span class="mdc-button__ripple"></span>
+      <span class="mdc-button__label">送信する</span>
+    </button>
+  </div>
+  <div class="mdc-dialog" id="NoSupportForm">
+    <div class="mdc-dialog__container">
+      <div class="mdc-dialog__surface"
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby="my-dialog-title"
+        aria-describedby="my-dialog-content">
+        <h2 class="mdc-dialog__title astro-W3EO3AEF" id="my-dialog-title">
+          <!--
+       -->エラー<!--
+     -->
+        </h2>
+        <div class="mdc-dialog__content" id="my-dialog-content">
+          この機能は現在まだご利用いただけません。
+        </div>
+        <div class="mdc-dialog__actions">
+          <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="discard">
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">OK</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="mdc-dialog__scrim"></div>
   </div>
 </Layout>
 
@@ -77,7 +104,14 @@ const visible = true;
   }
 </style>
 <script>
-    document.querySelector(".gb")?.addEventListener("click",() => {
-        alert("まだ、この機能はご利用いただけません。")
-    })
+  import { MDCDialog } from "@material/dialog";
+  const dialogElement = document.querySelector(".mdc-dialog#NoSupportForm");
+
+  document.querySelector(".gb")?.addEventListener("click", () => {
+    if (dialogElement) {
+      const dialog = new MDCDialog(dialogElement);
+
+      dialog.open();
+    }
+  });
 </script>

@@ -4,8 +4,9 @@ interface Props {
 }
 
 const { title } = Astro.props;
-import HomeHeader from "../components/astro/HomeHeader/index.astro";
-import Footer from "../components/astro/footer/index.astro";
+import HomeHeader from "../components/HomeHeader/index.astro";
+import Footer from "../components/footer/index.astro";
+import "../components/style/mdc/home.scss";
 
 ---
 
@@ -21,9 +22,9 @@ import Footer from "../components/astro/footer/index.astro";
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="github-markdown.css">
     <title>{title} | O.T Site（Old）</title>
   </head>
-  <body class="mdc-typography">
     
       <HomeHeader title={title} />
 
@@ -32,7 +33,7 @@ import Footer from "../components/astro/footer/index.astro";
           <nav class="mdc-deprecated-list">
             <a
               class="mdc-deprecated-list-item mdc-deprecated-list-item--activated"
-              href="#"
+              href="/"
               aria-current="page"
             >
               <span class="mdc-deprecated-list-item__ripple"></span>
@@ -40,37 +41,62 @@ import Footer from "../components/astro/footer/index.astro";
                 class="material-icons-outlined mdc-deprecated-list-item__graphic"
                 aria-hidden="true">home</i
               >
-              <span class="mdc-deprecated-list-item__text">ホーム!!</span>
+              <span class="mdc-deprecated-list-item__text">ホーム</span>
             </a>
-            <a class="mdc-deprecated-list-item" href="#">
+            <a class="mdc-deprecated-list-item" href="/mdc-1003">
               <span class="mdc-deprecated-list-item__ripple"></span>
               <i
                 class="material-icons-outlined mdc-deprecated-list-item__graphic"
-                aria-hidden="true">person_add</i
+                aria-hidden="true">account_box</i
               >
               <span class="mdc-deprecated-list-item__text">アカウント一覧</span>
             </a>
-            <a class="mdc-deprecated-list-item" href="#">
+            <a class="mdc-deprecated-list-item" href="/new_news">
+              <span class="mdc-deprecated-list-item__ripple"></span>
+              <i
+                class="material-icons-outlined mdc-deprecated-list-item__graphic"
+                aria-hidden="true">notifications</i
+              >
+              <span class="mdc-deprecated-list-item__text">おしらせ</span>
+            </a>
+            <a class="mdc-deprecated-list-item" href="/contact_us">
               <span class="mdc-deprecated-list-item__ripple"></span>
               <i
                 class="material-icons-outlined mdc-deprecated-list-item__graphic"
                 aria-hidden="true">contact_support</i
               >
-              <span class="mdc-deprecated-list-item__text">Drafts</span>
+              <span class="mdc-deprecated-list-item__text">お問い合わせ</span>
+            </a>
+            <a class="mdc-deprecated-list-item" href="/settings">
+              <span class="mdc-deprecated-list-item__ripple"></span>
+              <i
+                class="material-icons-outlined mdc-deprecated-list-item__graphic"
+                aria-hidden="true">info</i
+              >
+              <span class="mdc-deprecated-list-item__text">設定</span>
+            </a>
+            <a class="mdc-deprecated-list-item" href="/settings">
+              <span class="mdc-deprecated-list-item__ripple"></span>
+              <i
+                class="material-icons-outlined mdc-deprecated-list-item__graphic"
+                aria-hidden="true">settings</i
+              >
+              <span class="mdc-deprecated-list-item__text">設定</span>
             </a>
           </nav>
+          <a href="/a">このサイトの詳細</a>
         </div>
       </aside>
 
       <main
-        class="main-content mdc-top-app-bar--fixed-adjust"
+        class="main-content mdc-top-app-bar--fixed-adjust mdc-typography"
         id="main-content"
       >
         <slot />
         <Footer/>
       </main>
     
-  </body>
+  
 </html>
 <script>
   import "../components/ts/home.ts";

@@ -1,0 +1,35 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../components/style/mdc/home.scss";
+const visible = true;
+---
+
+<Layout title="このサイトに関する情報">
+    <h1 class="mdc-typography--headline4">Big header</h1>
+</Layout>
+
+<style>
+  .fromGrid {
+    display: grid;
+    gap: 10px;
+    margin: 10px;
+  }
+  .TopMessage {
+    margin: 10px;
+  }
+  .gb {
+    height: 48px;
+  }
+</style>
+<script>
+  import { MDCDialog } from "@material/dialog";
+  const dialogElement = document.querySelector(".mdc-dialog#NoSupportForm");
+
+  document.querySelector(".gb")?.addEventListener("click", () => {
+    if (dialogElement) {
+      const dialog = new MDCDialog(dialogElement);
+
+      dialog.open();
+    }
+  });
+</script>

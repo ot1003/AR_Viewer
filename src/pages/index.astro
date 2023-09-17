@@ -1,6 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 import Card from '../components/astro/Card.astro';
+const now = new Date()
 ---
 
 <Layout title="Welcome to Astro.">
@@ -11,27 +12,29 @@ import Card from '../components/astro/Card.astro';
 		</p>
 		<ul role="list" class="link-card-grid">
 			<Card
-				href="mdc-1003"
+				href="/mdc-1003"
 				title="ホーム"
-				body="新しいホーム（α版）"
+				body="アカウント一覧やおしらせ一覧をみれます"
 			/>
 			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
+				href="/mdc-1003/accountList"
+				title="アカウント一覧"
+				body="ほぼすべてのアカウントをみれます"
 			/>
 			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
+				href="/new_news"
+				title="おしらせ"
+				body="最新のおしらせや過去のおしらせをみれます"
 			/>
 			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
+				href="/contact_us"
+				title="お問い合わせ"
+				body="不具合の報告や不明な点を質問できます（回答しません）"
 			/>
 		</ul>
 	</main>
+	<h1>現在<span class="text-gradient">{`${now.getHours()}時${now.getMinutes()}分${now.getSeconds()}秒`}</span>です</h1>
+		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
 </Layout>
 
 <style>

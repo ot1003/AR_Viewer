@@ -1,6 +1,5 @@
 @use "@material/theme" with (
   $primary: #00949d,
-  $secondary: #feeae6,
   $on-primary: #fff,
   $on-secondary: #442b2d
 );
@@ -23,12 +22,18 @@
 @use "@material/dialog";
 @use "@material/snackbar";
 @use "@material/snackbar/mdc-snackbar";
+@use "@material/checkbox";
+@use "@material/form-field";
+
 
 @use "@material/floating-label/mdc-floating-label";
 @use "@material/line-ripple/mdc-line-ripple";
 @use "@material/notched-outline/mdc-notched-outline";
 @use "@material/textfield";
+@use "@material/radio/styles" as radio;
 
+@include checkbox.core-styles;
+@include form-field.core-styles;
 @include textfield.core-styles;
 @include dialog.core-styles;
 
@@ -58,17 +63,17 @@
 .a2a_label {
   display: none;
 }
+.mdc-dialog--open .mdc-dialog__scrim {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
 body .a2a_default_style:not(.a2a_flex_style) a {
   padding: 0px;
 }
-a[href] {
-  color: inherit;
-  text-decoration:none;
-}
 
-.mdc-deprecated-list .mdc-deprecated-list-item__graphic {
+.mdc-deprecated-list .mdc-deprecated-list-item__graphic svg{
   // Safari Bug fix
-  display: block;
+  width: 100%;
 }
 
 .sidebar {
@@ -81,22 +86,42 @@ a[href] {
   padding: 16px;
 }
 
-.my-card-content__title {
+.my-card-content {
+  a[href] {
+    color: inherit;
+    text-decoration: none;
+  }
   font-size: 1.25rem;
-  line-height: 2rem;
-  font-weight: 500;
-  letter-spacing: 0.0125em;
+  &__title {
+    line-height: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.0125em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    &__top {
+      font-size: 1rem;
+      color: rgba(13, 75, 78, 0.87);
+    }
+  }
+  &__subtext {
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.0178571429em;
+    color: rgba(13, 75, 78, 0.87);
+  }
 }
 
-.my-card-content__subtext {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 400;
-  letter-spacing: 0.0178571429em;
-  opacity: 0.6;
+.mdc-card :is(.mdc-card__primary-action, .my-card-content):not(:last-child) {
+  border-bottom-color: rgba(0, 0, 0, 0.12);
+  display: block;
+  user-select: none;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  speak: none;
 }
-
-body {
+.my-card-content body {
   padding: 0;
   margin: 0 auto;
 }

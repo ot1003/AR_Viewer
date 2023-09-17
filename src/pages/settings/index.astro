@@ -1,0 +1,101 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../components/style/mdc/home.scss";
+const visible = true;
+---
+
+<Layout title="設定">
+  <div class="mdc-typography--subtitle1">ダークテーマ</div>
+  <ul class="mdc-deprecated-list" role="radiogroup">
+    <li class="mdc-deprecated-list-item" role="radio" aria-checked="false">
+      <span class="mdc-deprecated-list-item__ripple"></span>
+      <label class="mdc-deprecated-list-item__text" for="demo-list-radio-item-1"
+        >デバイスの設定</label
+      >
+      <span class="mdc-deprecated-list-item__meta">
+        <div class="mdc-radio">
+          <input
+            class="mdc-radio__native-control"
+            type="radio"
+            id="demo-list-radio-item-1"
+            name="demo-list-radio-item-group"
+            value="1"
+          />
+          <div class="mdc-radio__background">
+            <div class="mdc-radio__outer-circle"></div>
+            <div class="mdc-radio__inner-circle"></div>
+          </div>
+        </div>
+      </span>
+    </li>
+    <li
+      class="mdc-deprecated-list-item"
+      role="radio"
+      aria-checked="true"
+      tabindex="0"
+    >
+      <span class="mdc-deprecated-list-item__ripple"></span>
+      <label class="mdc-deprecated-list-item__text" for="demo-list-radio-item-2"
+        >ライトテーマ</label
+      >
+      <span class="mdc-deprecated-list-item__meta">
+        <div class="mdc-radio">
+          <input
+            class="mdc-radio__native-control"
+            type="radio"
+            id="demo-list-radio-item-1"
+            name="demo-list-radio-item-group"
+            value="2"
+          />
+          <div class="mdc-radio__background">
+            <div class="mdc-radio__outer-circle"></div>
+            <div class="mdc-radio__inner-circle"></div>
+          </div>
+        </div>
+      </span>
+    </li>
+    <li class="mdc-deprecated-list-item" role="radio" aria-checked="false">
+      <span class="mdc-deprecated-list-item__ripple"></span>
+      <label class="mdc-deprecated-list-item__text" for="demo-list-radio-item-3"
+        >ダークテーマ</label
+      >
+      <span class="mdc-deprecated-list-item__meta">
+        <div class="mdc-radio">
+          <input
+            class="mdc-radio__native-control"
+            type="radio"
+            id="demo-list-radio-item-1"
+            name="demo-list-radio-item-group"
+            value="3"
+          />
+          <div class="mdc-radio__background">
+            <div class="mdc-radio__outer-circle"></div>
+            <div class="mdc-radio__inner-circle"></div>
+          </div>
+        </div>
+      </span>
+    </li>
+  
+  </ul>
+
+  <style>
+    .fromGrid {
+      display: grid;
+      gap: 10px;
+      margin: 10px;
+    }
+    .TopMessage {
+      margin: 10px;
+    }
+    .gb {
+      height: 48px;
+    }
+  </style>
+  <script>
+    import { MDCSwitch } from "@material/switch";
+
+    for (const el of document.querySelectorAll(".mdc-switch")) {
+      const switchControl = new MDCSwitch(el);
+    }
+  </script>
+</Layout>

@@ -1,8 +1,10 @@
 ---
-import "../../../components/style/mdc/header.scss";
-import Tooltip from "../../astro/mdc-tooltip/index.astro";
+import "../style/mdc/header.scss";
+import Tooltip from "../mdc/mdc-tooltip/index.astro";
 import { QRCodeSVG } from "qrcode.react";
-import { Buttons } from "./qrcode";
+import  Buttons  from "./NowPageQrcode/react_qrcde_output";
+import { SampleCounter } from "./NowPageQrcode/solid_data_input";
+
 ---
 
 <!-- Home Header Astro Island -->
@@ -49,7 +51,7 @@ import { Buttons } from "./qrcode";
   >
 </div>
 
-<div class="mdc-dialog">
+<div class="mdc-dialog" id="QRcodeshare">
   <div class="mdc-dialog__container">
     <div
       class="mdc-dialog__surface"
@@ -66,13 +68,11 @@ import { Buttons } from "./qrcode";
    -->
       </h2>
       <div class="mdc-dialog__content" id="my-dialog-content">
-        <div
-          style="margin: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;"
+        <div class="grid_qrcode"
         >
-          <Buttons client:only="react" />
+       <!--  <Buttons client:load/>
+          <SampleCounter client:load url={Astro.url}/> -->
+          この機能は一時的にご利用いただけません。
         </div>
       </div>
       <div class="mdc-dialog__actions">
@@ -107,7 +107,7 @@ import { Buttons } from "./qrcode";
 <aside class="mdc-snackbar" id="copyCancel">
   <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
     <div class="mdc-snackbar__label" aria-atomic="false">
-      コピーできませんでした
+      コピーできませんでした🥺
     </div>
     <div class="mdc-snackbar__actions" aria-atomic="true">
       <button type="button" class="mdc-button mdc-snackbar__action">
@@ -157,7 +157,7 @@ import { Buttons } from "./qrcode";
     url: "",
   };
 
-  const dialogElement = document.querySelector(".mdc-dialog");
+  const dialogElement = document.querySelector(".mdc-dialog#QRcodeshare");
   if (dialogElement) {
     const dialog = new MDCDialog(dialogElement);
     document.querySelector("#webpage_qrcode")?.addEventListener("click", () => {
@@ -167,16 +167,16 @@ import { Buttons } from "./qrcode";
 
   function ShowSubWindow() {
     // サブウインドウの設定
-    var subw = 560; // サブウインドウの横幅
-    var subh = 440; // サブウインドウの高さ
-    let now_URL = location.href;
-    var subp = `https://www.addtoany.com/share#url=${location.href}`; // 表示するページ(URL)
-    var subn = "共有する"; // サブウインドウの名称
+    const subw = 560; // サブウインドウの横幅
+    const subh = 440; // サブウインドウの高さ
+    const now_URL = location.href;
+    const subp = `https://www.addtoany.com/share#url=${location.href}`; // 表示するページ(URL)
+    const subn = "共有する"; // サブウインドウの名称
     // 表示座標の計算
-    var subx = (screen.availWidth - subw) / 2; // X座標
-    var suby = (screen.availHeight - subh) / 2; // Y座標
+    const subx = (screen.availWidth - subw) / 2; // X座標
+    const suby = (screen.availHeight - subh) / 2; // Y座標
     // サブウインドウのオプション文字列を作る
-    var SubWinOpt =
+    const SubWinOpt =
       "width=" + subw + ",height=" + subh + ",top=" + suby + ",left=" + subx;
     // サブウインドウを表示
     window.open(subp, subn, SubWinOpt);
@@ -239,7 +239,7 @@ import { Buttons } from "./qrcode";
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
-    margin: auto;
+    margin-inline: auto;
   }
   .mdc-dialog__surface {
     overflow: hidden;
@@ -258,5 +258,10 @@ import { Buttons } from "./qrcode";
     margin: 1em 0;
     padding: 0;
     speak: none;
+  }
+  .grid_qrcode {
+    display: grid;
+    gap: 10px;
+    justify-items: center;
   }
 </style>

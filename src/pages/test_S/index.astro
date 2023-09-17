@@ -1,0 +1,13 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import CounterDisplay from "../../components/test/CounterDisplay";
+import CounterController from "../../components/test/CounterController";
+const gj = `${Astro.url}`;
+---
+
+<Layout title="QRcode Test">
+  <main>
+    <CounterDisplay client:only="preact" />
+    <CounterController client:visible url={gj} />
+  </main>
+</Layout>
