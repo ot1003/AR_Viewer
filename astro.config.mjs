@@ -20,5 +20,5 @@ export default defineConfig({
     compat: true
   }), react()],
   output: "server",
-  adapter: cloudflare()
+  adapter: cloudflare({ mode: "directory" }),
 });

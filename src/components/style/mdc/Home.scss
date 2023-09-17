@@ -72,7 +72,7 @@ body .a2a_default_style:not(.a2a_flex_style) a {
 }
 
 .mdc-deprecated-list .mdc-deprecated-list-item__graphic svg{
-  // Safari Bug fix
+  /* Safari Bug fix */
   width: 100%;
 }
 
@@ -81,7 +81,7 @@ body .a2a_default_style:not(.a2a_flex_style) a {
   position: fixed;
 }
 
-//テキスト部のスタイル
+/* テキスト部のスタイル */
 .my-card-content {
   padding: 16px;
 }
